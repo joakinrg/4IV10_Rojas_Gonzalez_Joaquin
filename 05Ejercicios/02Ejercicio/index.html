@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salario</title>
+</head>
+<body>
+    <div class="container">
+        <form method="get" name="formulario" action="">
+            <label>Formulario para el calculo del salario con sueldo extra</label>
+            <br>
+            <div class="table-conatiner">
+                <table id="tabla" class="tablas">
+                    <tr>
+                        <td>Introduce tu salario base :) </td>
+                        <td><input type="text" id="sueldo" onkeypress="return validarn(event)"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="Button" name="extra" value="Calcular mi nuevo sueldito $$" onclick="return aumento()"></td>
+
+                    </tr>
+                    <tr>
+                        <td>Su sueldito con una pequeña cantidad extra es: </td>
+                        <td>
+                            <input type="text" name="sueldito" id="sueldofinal" readonly="readonly"
+                            class="input_text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="button" name="borrar" value="Borrar Datos" onclick="return borrardata()"></td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+        <script src="./JS/sueldo.js"></script>
+        <a href="../index.html">Regresar</a>
+    </div>
+    
+</body>
+</html>
