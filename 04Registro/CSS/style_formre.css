@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding: 2px;
+    color: #111625;
+}
+
+body{
+    background-color: #571b3c;
+    margin: 1rem;
+}
+
+.intro{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    background-color: #7a1e48;
+    text-align: justify;
+    border: none;
+    border-radius: 15px;
+    margin: 1rem;
+    padding: 6px;
+}
+.intro h1{
+    font-size: 22px;
+    text-align: center;
+}
+
+.main-container{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    background-color: #7a1e48;
+    text-align: justify;
+    border: none;
+    border-radius: 15px;
+    margin: 1rem;
+    padding: 6px
+}
+.content-formulario input{
+    padding-bottom: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border:none;
+    border-radius: 5px;
+    height: 15px;
+    background-color: #dbd8d8;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#borrar,
+#enviar {
+  font-size: 15px;
+  height: 22px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.menu{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    background-color: #7a1e48;
+    text-align: center;
+    border: none;
+    border-radius: 15px;
+    margin: 1rem;
+    padding: 6px;
+}
