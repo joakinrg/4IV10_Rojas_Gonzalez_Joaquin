@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=}, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./JS/descuento.js"></script>
+</head>
+<body>
+    <div class="datos">
+    <label>Bienvenido a tiendas "la estafa" </label>
+    <br>
+    <label>Escoge los productos que quieras comprar</label>
+    <br>
+    <table id="tablada" class="tablad">   
+        <tr>
+            <td>Nombre del Producto</td>
+            <td>Marca del Producto</td>
+            <td>Tipo de Producto</td>
+            <td>Precio del Producto</td>  
+        </tr>
+        <tr>
+            <td>Papas</td>
+            <td>Sabritas</td>
+            <td>Limón</td>
+            <td>$15</td> 
+        </tr>
+        <tr>
+            <td>Papas</td>
+            <td>Sabritas</td>
+            <td>Receta crujiente</td>
+            <td>$15</td> 
+        </tr>
+        <tr>
+            <td>Papas</td>
+            <td>Sbritas</td>
+            <td>Habanero</td>
+            <td>$15</td>
+        </tr>
+        <tr>
+            <td>Papas</td>
+            <td>Barcel</td>
+            <td>Takis</td>
+            <td>$17</td>
+        </tr>
+        <tr>
+            <td>Papas</td>
+            <td>Barcel</td>
+            <td>Chips</td>
+            <td>$17</td>
+        </tr>
+        <tr>
+            <td>Pastelitos</td>
+            <td>El globo</td>
+            <td>Chocolate</td>
+            <td>$160</td>
+        </tr>
+        <tr>
+            <td>Pastelitos</td>
+            <td>El globo</td>
+            <td>Tres leches</td>
+            <td>$180</td>
+        </tr>
+        <tr>
+            <td>Pastelitos</td>
+            <td>El globo</td>
+            <td>Frutas</td>
+            <td>$150</td>
+        </tr>
+        <tr>
+            <td>Lacteos</td>
+            <td>Lala</td>
+            <td>Leche</td>
+            <td>$12</td>
+        </tr>
+        <tr>
+            <td>Lacteos</td>
+            <td>Epura</td>
+            <td>Leche</td>
+            <td>$15</td>
+        </tr>
+        <tr>
+            <td>Lacteos</td>
+            <td>Epura</td>
+            <td>Crema</td>
+            <td>$25</td>
+        </tr>
+    </table>
+    </div>
+    <div class="container">
+        <div class="main-container">
+            <form name="formulario" method="get" onsubmit="return validarpre(this)">
+                <table id="tabla" class="tablap">
+                    <tr>
+                        <td>Introduce la marca del producto</td>
+                        <td><input type="text" id="marca" name="marca"></td>
+                    </tr>
+                    <tr>
+                        <td>Introduce el tipo del producto</td>
+                        <td><input type="text" id="tipo" id="tipo" onkeypress=""></td>
+                    </tr>
+                    <tr>
+                        <td>Introduce el numero de productos que quieres comprar</td>
+                        <td><input type="text" id="num" onkeypress="return valnum(event)"></td>
+                    </tr>
+                </table>
+                <input type="submit" name="enviar" id="enviar" value="Enviar datos">
+                <br>
+                <input type="reset" name="borrar" id="borrar" value="Borrar datos">
+                <table>
+                    <tr>
+                        <td>El precio a pagar es: </td>
+                        <td><input type="text" name="cobro" id="dine" readonly="readonly" class="input_text"></td>
+                    </tr>
+                </table>
+            </form>
+            
+        </div>
+    </div>
+    <div class=" menu">
+        <a href="../index.html">regresar</a>
+    </div>
+</body>
+
+
+</html>

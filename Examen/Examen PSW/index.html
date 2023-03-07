@@ -1,0 +1,40 @@
+  <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Interés compuesto</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Calcula tu interés "muere"</h1>
+    <p>Ingrese los siguientes datos:</p>
+    <label for="capital">Capital inicial:</label>
+    <input type="text" id="capital" name="capital" oninput="checkInput(this)" pattern="^[0-9]{1,11}$"><br><br>
+    <label for="tasa">Tasa de interés anual:</label>
+    <input type="text" id="tasa" name="tasa" oninput="checkInput(this)" pattern="^[0-9]{1,4}([.][0-9]{1,2})?$"><br><br>
+    <label for="periodos">Número de meses:</label>
+    <input type="text" id="periodos" name="periodos" oninput="checkInput(this)" pattern="^[0-9]{1,5}$"><br><br>
+    <button onclick="calcularInteres()">Calcular</button>
+    <button onclick="borrarDatos()">Borrar datos</button>
+    <br><br>
+    <div id="resultado"></div>
+    
+    <h2>Tabla de amortización</h2>
+    <table id="tablaAmortizacion">
+      <thead>
+        <tr>
+          <th>Período</th>
+          <th>Saldo inicial</th>
+          <th>Interés generado</th>
+          <th>Pago del período</th>
+          <th>Saldo final</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+    
+    <script src="script.js"></script>
+  </body>
+</html>
+

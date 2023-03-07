@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calificaciones</title>
+    <script src="./JS/calif.js"></script>
+</head>
+<body>
+    <div class="texto">
+        <p>Un alumno desea saber cual será su calificación final en la materia de Algoritmos. Dicha calificación se compone de los siguientes porcentajes:</p>
+        <br>
+        <p>55% del promedio de sus tres calificaciones parciales</p>
+        <p>30% de la calificacion del examen final</p>
+        <p>15% de la calificacion de un trabajo final</p>
+    </div>
+    <div class="container">
+        <form name="formulario" method="get" onsubmit="">
+            <table class="tablac">
+            <tr>
+                <td><label>Calificación Parcial 1</label></td>
+                <td><input type="number" name="cal1" id="cal1" min="01" max="10"></td>
+            </tr>
+            <tr>
+                <td><label>Calificación Parcial 2</label></td>
+                <td><input type="number" name="cal2" id="cal2" min="01" max="10"></td>
+            </tr>
+            <tr>
+                <td><label>Calificación Parcial 3</label></td>
+                <td><input type="number" name="cal3" id="cal3" min="01" max="10"></td>
+            </tr>
+            <tr>
+                <td><label>Calificación Examen Final</label></td>
+                <td><input type="number" name="exaf" id="exaf" min="01" max="10"></td>
+            </tr>
+            <tr>
+                <td><label>Calificación Trabajo Final</label></td>
+                <td><input type="number" name="traf" id="traf" min="01" max="10"></td>
+            </tr>
+            <tr>
+                <td><input type="button" name="enviar" id="enviar" value="Dar calificacion" onclick="return promedio()"></td>
+                <td><input type="button" name="borrar" id="borrar" value="borrar datos" onclick="return borrardata()"></td>
+            </tr>
+            <tr>
+                <td><label>Tu calificación final es: </label></td>
+                <td><input type="text" id="calfin" readonly="readonly" class="input_text"></td>
+            </tr>
+            </table>
+            <br>
+        </form>
+
+    </div>
+    
+    <a href="../index.html">Regresar</a>
+</body>
+</html>
