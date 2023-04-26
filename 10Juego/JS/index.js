@@ -1,71 +1,141 @@
-const canvas =  document.querySelector('canvas')
-const c = canvas.getContext('2d')
+// Obtener el lienzo y el contexto
+const canvas = document.getElementById("lienzo");
+const ctx = canvas.getContext("2d");
 
-canvas.width = 1024
-canvas.height = 576
+// Definir la rana
+let rana = {
+  x: 100,
+  y: 350,
+  w: 50,
+  h: 50,
+  v: 0,
+  a: 0.5,
+  salto: 12
+};
 
-c.fillRect(0, 0, canvas.width, canvas.height)
+// Definir las hojas
+let hojas = [
+  {x: 100, y: 300, w: 50, h: 50},
+  {x: 300, y: 250, w: 50, h: 50},
+  {x: 500, y: 200, w: 50, h: 50},
+  {x: 700, y: 150, w: 50, h: 50}
+];
 
-const gravedad = 0.2
-class Sprite {
-    constructor({position, velocidad}){
-        this.position = position
-        this.velocidad = velocidad
-        this.height = 150
+// Definir el estado del juego
+let estado = "jugando";
+let puntuacion = 0;
 
-    }
-    draw(){
-        c.fillStyle = 'red'
-        c.fillRect(this.position.x, this.position.y, 50, 150)
-    }
-    update(){
-        this.draw()
-        
-        this.position.y += this.velocidad.y
-
-        if(this.position.y + this.height + this.velocidad.y >= canvas.height){
-            this.velocidad.y = 0
-        } else this.velocidad += gravedad
-    }
+// Definir la función para dibujar la rana
+function dibujarRana() {
+  ctx.fillStyle = "green";
+  ctx.fillRect(rana.x, rana.y, rana.w, rana.h);
 }
 
-const j1 = new Sprite({
-    position: {
-    x:0,
-    y:0
-    },
-    velocidad: {
-        x: 0,
-        y: 0
-    }
-})
-player.draw()
-
-const enemigo = new Sprite({
-    position: {
-    x:400,
-    y:100
-    },
-    velocidad: {
-        x: 0,
-        y: 0
-    }
-})
-
-enemigo.draw()
-
-console.log(player)
-
-function animacion(){
-    window.requestAnimationFrame(animacion)
-    c.fillStyle = 'black'
-    c.fillRect(0, 0, canvas.width, canvas.height)
-    j1.update()
-    enemigo.update()
-
+// Definir la función para dibujar las hojas
+function dibujarHojas() {
+  ctx.fillStyle = "brown";
+  hojas.forEach(hoja => {
+    ctx.fillRect(hoja.x, hoja.y, hoja.w, hoja.h);
+  });
 }
-animacion()
 
-window.addEventListener('flechaabajo', (event) => {
-    
-})
+// Definir la función para detectar la colisión entre la rana y las hojas
+function detectarColision() {
+  hojas.forEach(hoja => {
+    if (
+      rana.x + rana.w > hoja.x &&
+      rana.x < hoja.x + hoja.w &&
+      rana.y + rana.h > hoja.y &&
+      rana.y < hoja.y + hoja.h &&
+      rana.v > 0
+    ) {
+      rana.v = -rana.salto;
+      rana.y = hoja.y - rana.h;
+      puntuacion++;
+    }
+  });
+}
+
+// Definir la función para actualizar la posición de la rana
+function actualizarRana() {
+  rana.v += rana.a;
+  rana.y += rana.v;
+  if (rana.y > canvas.height) {
+    estado = "fin";
+  }
+}
+
+// Definir la función para dibujar el marcador
+function dibujarMarcador() {
+  ctx.fillStyle = "black";
+  ctx.font = "20px Arial";
+  ctx.fillText(`Puntuación: ${puntuacion}`, 20, 30);
+}
+
+// Definir la función para dibujar la pantalla de fin
+function dibujarFin() {
+  ctx.fillStyle = "red";
+  ctx.font = "50px Arial";
+  ctx.fillText("Game Over", 250, 200);
+  ctx.fillText(`Puntuación: ${puntuacion}`, 250, 250);
+}
+
+// Definir la función para dibujar el juego
+function dibujar() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  dibujarRana();
+  dibujarHojas();
+  dibujarMarcador();
+  if (estado === "fin") {
+    dibujarFin();
+  }
+}
+// Definir la función principal del juego
+function principal() {
+  // Actualizar la posición de la rana
+  actualizarRana();
+  
+  // Detectar la colisión entre la rana y las hojas
+  detectarColision();
+  
+  // Dibujar el juego
+  dibujar();
+  
+  // Comprobar el estado del juego
+  if (estado === "jugando") {
+  // Pedir al navegador que llame a la función principal de nuevo en el siguiente fotograma
+  requestAnimationFrame(principal);
+  }
+}
+  
+  // Añadir un event listener para el clic del ratón
+  canvas.addEventListener("click", function() {
+  if (estado === "jugando") {
+  rana.v = -rana.salto;
+  } else if (estado === "fin") {
+  estado = "jugando";
+  rana.y = 200;
+  rana.v = 0;
+  puntuacion = 0;
+  hojas = [
+  {x: 100, y: 300, w: 50, h: 50},
+  {x: 300, y: 250, w: 50, h: 50},
+  {x: 500, y: 200, w: 50, h: 50},
+  {x: 700, y: 150, w: 50, h: 50}
+  ];
+  principal();
+  }
+  });
+  // Agregar evento de teclado al lienzo
+document.addEventListener("keydown", function(event) {
+  if (estado === "jugando") {
+    if (event.code === "ArrowLeft") {
+      rana.x -= 50; // Mover a la rana a la izquierda
+    } else if (event.code === "ArrowRight") {
+      rana.x += 50; // Mover a la rana a la derecha
+    }
+  }
+});
+  
+  // Llamar a la función principal por primera vez
+  principal();
